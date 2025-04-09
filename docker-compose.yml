@@ -1,7 +1,7 @@
 
 # This Docker Compose file is used to spin up a local dotCMS container using Docker.
 # Simply place this file in the desired working directory and run 'docker compose up' to get started.
-# Version: 24.12.27v3 LTS
+# Version: 25.03.27-1
 # Demo Site Excluded
 # Starter Image: 20241105
 
@@ -52,16 +52,10 @@ services:
           memory: 2G
 
   dotcms:
-    image: dotcms/dotcms:24.12.27_lts_v3_988fadc
-    deploy:
-      resources:
-        limits:
-          cpus: '2'
-          memory: 8G
+    image: dotcms/dotcms:25.03.27-1_e6022f3
     environment:
       CMS_JAVA_OPTS: '-Xmx1g '
       ## JAVA_TOOL_OPTIONS: '-XX:UseSVE=0'
-      JAVA_TOOL_OPTIONS: ""
       LANG: 'C.UTF-8'
       TZ: 'UTC'
       DB_BASE_URL: "jdbc:postgresql://db/dotcms"
