@@ -1,0 +1,30 @@
+<head>
+#dotParse("${dotTheme.path}dot_seo.vtl")
+  <title>Beachside Brewing | $!dotSeo.get('pageTitle')</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="dotCMS" content="$!{host.identifier}" />
+  <meta name="description" content="$!dotSeo.get('metaDescription')" />
+  <link rel="canonical" href="https://${host}$!dotSeo.get('canonicalUrl')" />
+  <link rel="icon" href="${dotTheme.path}images/favicon.ico" />
+  <link rel="alternate" hreflang="x-default" href="$dotSeo.get('canonicalUrl')">
+
+  <!-- Robots -->
+  <meta name="robots" content="$!dotSeo.get('robots')" />
+  <meta name="robots" content="max-snippet: $!dotSeo.get('snippet')" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="${dotTheme.path}css/bootstrap.min.css">
+  <script src="${dotTheme.path}js/bootstrap.bundle.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="${dotTheme.path}css/styles.dotsass">
+</head>
