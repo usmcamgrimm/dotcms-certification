@@ -1,1 +1,28 @@
-<!-- Placeholder text -->
+<nav class="navbar navbar-expand-nav navbar-light custom-navbar">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#section-nav" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <span class="navbar-brand h5 d-nav-none">Beachside Brewing</span>
+  <div class="collapse navbar-collapse justify-content-center" id="section-nav">
+    #set($section_nav = $navtool.getNav("$!{domain}/"))
+    <ul class="navbar-nav nav-pills">
+      #foreach($n in $section_nav)
+        #set($children = $n.children)
+        #if($children && $children.size() > 0)
+          <li class="nav-item section-item dropdown">
+            <a class="nav-link dropdown-toggle" href="${n.href}" role="button" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span>${n.title}</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              #foreach($ch in $children)
+                <a class="dropdown-item" href='${ch.href}' target='${ch.target}'>
+                  <span>${ch.title}</span>
+                </a>
+              #end
+            </div>
+          </li>
+        #end
+      #end
+    </ul>
+  </div>
+</nav>
