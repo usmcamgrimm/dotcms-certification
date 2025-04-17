@@ -7,11 +7,12 @@
 }
 html, body {
   height: 100%;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Klee+One', sans-serif;
 }
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background: #f5e2bf;
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -23,10 +24,12 @@ input, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
-h1 {
-  font-family: 'Fugaz One', sans-serif;
-}
-footer {
+header, footer {
   background: #0b3754;
   color: #f5e2bf;
+}
+h1 {
+  font-family: 'Fugaz One', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  color: #0b3754;
 }

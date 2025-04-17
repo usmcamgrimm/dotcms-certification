@@ -1,28 +1,79 @@
-<nav class="navbar navbar-expand-nav navbar-light custom-navbar">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#section-nav" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <span class="navbar-brand h5 d-nav-none">Beachside Brewing</span>
-  <div class="collapse navbar-collapse justify-content-center" id="section-nav">
-    #set($section_nav = $navtool.getNav("$!{domain}/"))
-    <ul class="navbar-nav nav-pills">
-      #foreach($n in $section_nav)
-        #set($children = $n.children)
-        #if($children && $children.size() > 0)
-          <li class="nav-item section-item dropdown">
-            <a class="nav-link dropdown-toggle" href="${n.href}" role="button" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span>${n.title}</span>
+#if($request.getAttribute("User-Agent")!="DOTCMS-SITESEARCH")
+<header class="sticky-top">
+  <style>
+      .navbar {
+          background-color: #0b3754 !important;
+      }
+      
+      .navbar-brand img {
+          height: 50px;
+          width: auto;
+      }
+      
+      .address {
+          font-size: 0.85rem;
+          color: #ffffff;
+          margin-bottom: 0;
+      }
+      
+      @media (max-width: 991px) {
+          .navbar-address {
+              margin-left: 15px;
+              margin-bottom: 15px;
+              margin-top: 5px;
+          }
+      }
+  </style>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="${dotTheme.path}images/beachside-logo-1.png" alt="Beachside Brewery Logo">
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              #foreach($ch in $children)
-                <a class="dropdown-item" href='${ch.href}' target='${ch.target}'>
-                  <span>${ch.title}</span>
-                </a>
-              #end
+            
+            <!-- Hamburger Menu Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Address on mobile (will be hidden on desktop) -->
+                <div class="navbar-address d-block d-lg-none">
+                    <p class="address">777 E Merritt Island Cswy, Merritt Island, FL 32952</p>
+                </div>
+                
+                <!-- Address on desktop (will be hidden on mobile) -->
+                <div class="d-none d-lg-block position-absolute" style="top: -25px; right: 0;">
+                    <p class="address">777 E Merritt Island Cswy, Merritt Island, FL 32952</p>
+                </div>
+                
+                <!-- Navigation Links -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Beers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tap Room</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Membership</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
             </div>
-          </li>
-        #end
-      #end
-    </ul>
-  </div>
-</nav>
+        </div>
+    </nav>
+</header>
+#end
