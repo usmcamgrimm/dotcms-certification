@@ -7,12 +7,12 @@
 }
 html, body {
   height: 100%;
-  font-family: 'Klee+One', sans-serif;
+  font-family: 'Klee One', sans-serif;
 }
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background: #f5e2bf;
+  background: #f1f1f1;
 }
 img, picture, video, canvas, svg {
   display: block;
