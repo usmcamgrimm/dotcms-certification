@@ -1,0 +1,77 @@
+<style>
+  .about-column-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+</style>
+
+#if($requeest.getAttribute("User-Agent")!="DOTCMS-SITESEARCH")
+  <footer id="footer">
+    <div class="container my-5">
+      <div class="row py-3">
+        <div class="col-lg-4 col-sm-12 text-center about-column-footer">
+          <img src="${dotTheme.path}images/beachside-logo-1.png" class="footer-logo mb-3" alt="Beachside Brewing Company Logo" width="180" height="94" />
+          <p>777 E Merritt Island Cswy<br>Merritt Island, FL 32952</p>
+          <p>Phone: <a href="tel:3211234567">(321)123-4657</a></p>
+          <p><a href="mailto:contact@beachsidebrewingco.org">contact@BeachsideBrewingCo.org</a></p>
+        </div>
+        <div class="col-lg-4 col-sm-12 text-left">
+          <ul class="footer-links-list">
+            <li class="nav-item #if($utilClass == 'home') active #end "><a class="nav-link" href='/'>Home</a></li>
+            #set($list = $navtool.getNav("/"))
+            #foreach($n in $list)
+              #set($children = $n.children)
+              <li class="nav-item #if($n.active) active #end">
+                <a class="nav-link" href="${n.href}">${n.title}</a>
+              </li>
+            #end
+          </ul>
+        </div>
+        <div class="col-lg-4 col-sm-12 text-left">
+          <h3>Tap Room Hours</h3>
+          <table class="table table-sm table-borderless">
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>3 PM - 9 PM</td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td>3 PM - 9 PM</td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td>3 PM - 9 PM</td>
+              </tr>
+              <tr>
+                <td>Thursday</td>
+                <td> 3PM - 9 PM</td>
+              </tr><tr>
+                <td>Friday</td>
+                <td>3 PM - 9 PM</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td>12 PM - 10 PM</td>
+              </tr>
+              <tr>
+                <td>Sunday</td>
+                <td>12 PM - 8 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <p class="text-center">
+            &copy;<script>document.write(new Date().getFullYear())</script> Beachside Brewing Company, All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+#end
