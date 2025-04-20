@@ -3,34 +3,61 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+  }
+  .footer-links-list {
+    list-style-type: none;
+    padding-left: 0; /* Added to remove default padding */
+  }
+  .footer-link {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .footer-link:hover {
+    color: #f5e2bf;
+    text-decoration: underline;
+  }
+  @media screen and (max-width: 767px) {
+    .two-column-links {
+      column-count: 2;
+      column-gap: 20px;
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .about-column-footer {
+      align-items: center;
+    }
   }
 </style>
 
 #if($requeest.getAttribute("User-Agent")!="DOTCMS-SITESEARCH")
   <footer id="footer">
     <div class="container my-5">
-      <div class="row py-3">
+      <div class="row pt-5">
         <div class="col-lg-4 col-sm-12 text-center about-column-footer">
           <img src="${dotTheme.path}images/beachside-logo-1.png" class="footer-logo mb-3" alt="Beachside Brewing Company Logo" width="180" height="94" />
           <p>777 E Merritt Island Cswy<br>Merritt Island, FL 32952</p>
-          <p>Phone: <a href="tel:3211234567">(321)123-4657</a></p>
-          <p><a href="mailto:contact@beachsidebrewingco.org">contact@BeachsideBrewingCo.org</a></p>
+          <p>Phone: <a href="tel:3211234567" class="footer-link">(321)123-4657</a></p>
+          <p><a href="mailto:contact@beachsidebrewingco.org" class="footer-link">contact@BeachsideBrewingCo.org</a></p>
         </div>
         <div class="col-lg-4 col-sm-12 text-left">
-          <ul class="footer-links-list">
-            <li class="nav-item #if($utilClass == 'home') active #end "><a class="nav-link" href='/'>Home</a></li>
+          <h3>Helpful Links</h3>
+          <!-- Added the two-column-links class to the ul element -->
+          <ul class="footer-links-list two-column-links">
+            <li class="list-style-none nav-item #if($utilClass == 'home') active #end "><a class="footer-link" href='/'>Home</a></li>
             #set($list = $navtool.getNav("/"))
             #foreach($n in $list)
               #set($children = $n.children)
-              <li class="nav-item #if($n.active) active #end">
-                <a class="nav-link" href="${n.href}">${n.title}</a>
+              <li class="list-style-none footer-nav-item #if($n.active) active #end">
+                <a class="footer-link" href="${n.href}">${n.title}</a>
               </li>
             #end
           </ul>
         </div>
         <div class="col-lg-4 col-sm-12 text-left">
           <h3>Tap Room Hours</h3>
-          <table class="table table-sm table-borderless">
+          <table class="table table-sm table-borderless" style="color: #ffffff; background-color: transparent;">
             <tbody>
               <tr>
                 <td>Monday</td>
@@ -68,7 +95,7 @@
       <div class="row">
         <div class="col-12">
           <p class="text-center">
-            &copy;<script>document.write(new Date().getFullYear())</script> Beachside Brewing Company, All Rights Reserved.
+            &copy;<script>document.write(new Date().getFullYear())</script> Beachside Brewing Company
           </p>
         </div>
       </div>
