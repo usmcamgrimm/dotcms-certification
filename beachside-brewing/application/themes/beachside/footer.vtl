@@ -1,36 +1,3 @@
-<style>
-  .about-column-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .footer-links-list {
-    list-style-type: none;
-    padding-left: 0; /* Added to remove default padding */
-  }
-  .footer-link {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  .footer-link:hover {
-    color: #f5e2bf;
-    text-decoration: underline;
-  }
-  @media screen and (max-width: 767px) {
-    .two-column-links {
-      column-count: 2;
-      column-gap: 20px;
-      width: 100%;
-    }
-  }
-  @media screen and (max-width: 991px) {
-    .about-column-footer {
-      align-items: center;
-    }
-  }
-</style>
-
 #if($requeest.getAttribute("User-Agent")!="DOTCMS-SITESEARCH")
   <footer id="footer">
     <div class="container my-5">
