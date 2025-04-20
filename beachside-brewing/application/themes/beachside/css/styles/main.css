@@ -33,3 +33,7 @@ h1 {
   font-size: clamp(2rem, 3vw, 2.5rem);
   color: #0b3754;
 }
+.table {
+  --bs-table-color: #ffffff;
+  --bs-table-bg: #0b3754;
+}
