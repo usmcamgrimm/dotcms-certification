@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'KaushanScript';
+  src: url('/application/themes/beachside/fonts/KaushanScript.ttf') format('truetype');
+}
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -96,53 +100,14 @@ ul.social-menu li.social-list a:hover {
 ul.social-menu li.social-list a i {
   font-size: 20px;
 }
-@media (max-width: 991px) {
-  .navbar-brand img {
-    width: 216px; 
-    height: auto;
-  }
-  .navbar-toggler {
-    margin-top: 8px;
-  }   
-  .navbar-collapse {
-    padding-top: 20px;
-    width: 100%;
-  }
-  .header-logo-column,
-  .about-column-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    max-width: 100%;
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-  .navbar-brand {
-    padding: 0;
-    margin: 0;
-  }
-  .navbar-nav {
-    margin-top: 15px;
-  }
-  .nav-item {
-    padding-right: 16px;
-  }
-  .nav-item:last-child {
-    padding-right: 0;
-  }
-}
 h1 {
   font-family: 'Fugaz One', sans-serif;
   font-size: 2rem;
   color: #0b3754;
 }
 h1.home-heading {
-    font-size: 60px;
+  font-family: 'KaushanScript';
+  font-size: 80px;
 }
 .video-container {
   position: relative;
@@ -184,6 +149,50 @@ h1.home-heading {
 .footer-link:hover {
   color: #f5e2bf;
   text-decoration: underline;
+}
+@media (max-width: 1024px) {
+  .navbar-brand img {
+    width: 216px; 
+    height: auto;
+  }
+  .navbar-toggler {
+    margin-top: 8px;
+  }   
+  .navbar-collapse {
+    padding-top: 20px;
+    width: 100%;
+  }
+  .header-logo-column,
+  .about-column-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h1.home-heading {
+    font-family: 'KaushanScript';
+    font-size: 64px;
+  }
+}
+@media (min-width: 1025px) {
+  .container {
+    max-width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+  }
+  .navbar-nav {
+    margin-top: 15px;
+  }
+  .nav-item {
+    padding-right: 16px;
+  }
+  .nav-item:last-child {
+    padding-right: 0;
+  }
 }
 @media screen and (max-width: 767px) {
   .two-column-links {
