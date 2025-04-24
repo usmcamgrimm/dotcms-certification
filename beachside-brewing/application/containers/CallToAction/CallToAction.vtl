@@ -1,10 +1,16 @@
-<div
-    #if ($EDIT_MODE) 
-        data-language="${CONTENT_LANGUAGE}"
-        data-mode="full"
-        data-inode="${ContentInode}"
-        data-field-name="body"      
-    #end
->
-    $!{dotContentMap.body}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class=text-center fw-bold>$!{dotContentMap.title}</h2>
+      <p>$!{dotContentMap.bodyText}</p>
+      <div class="cta-buttons d-flex flex-column justify-content-center align-items-center">
+        #if($UtilMethods.isSet($dotContentMap.button1Text) && $UtilMethods.isSet($dotContentMap.button1Url))
+        <a class="btn btn-primary" href="$dotContentMap.button1Url">$dotContentMap.button1Text</a>
+        #end
+        #if($UtilMethods.isSet($dotContentMap.button2Text) && $UtilMethods.isSet($dotContentMap.button2Url))
+          <a class="btn btn-outline-primary" href="$dotContentMap.button2Url">$dotContentMap.button2Text</a>
+        #end
+      </div>
+    </div>
+  </div>
 </div>
