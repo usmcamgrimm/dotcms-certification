@@ -175,6 +175,31 @@ h1.home-heading {
   color: #f5e2bf;
   text-decoration: underline;
 }
+.visit-taproom-bg {
+  background-color: #FF7F50; 
+  top: 0; 
+  bottom: 0; 
+  left: 25%; 
+  right: -25px; 
+  z-index: -1; 
+  transform: skewX(-10deg);
+  transform-origin: top left;
+  border-radius: 8px;
+}
+.visit-taproom-img {
+  border-radius: 5px;
+  box-shadow: 8px 5px 8px rgba(0, 0, 0, 0.5);
+}
+@media screen and (max-width: 991px) {
+  .visit-taproom-bg {
+    transform: none;
+    left: 0;
+    right: 0;
+  }
+  .visit-taproom-img {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  }
+}
 @media (max-width: 1024px) {
   .navbar-brand img {
     width: 216px; 
