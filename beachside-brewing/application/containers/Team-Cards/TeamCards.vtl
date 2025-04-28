@@ -1,18 +1,16 @@
 <style>
   .card {
     width: 20rem;
-    height: 400px;
+    height: 500px;
   }
 </style>
 <div class="container">
   <div class="card">
-    <img src="/dA/${dotContentMap.identifier}/image/$!{dotContentMap.image.name}" class="card-img-top team-img" alt="team member photo">
+    <img src="/dA/${dotContentMap.identifier}/image/$!{dotContentMap.image.name}" class="card-img-top team-img" width="320" height="280" alt="team member photo">
     <div class="card-body">
-      <p class="card-title fw-bold">$!{name}</p>
-      <p class="card-text">$!{title}</p>
+      <p class="card-title text-center"><span class="fw-bold">$!{name}</span> • <span class="card-text">$!{title}</span></p>
+      <hr>
+      <p class="card-text">$!{about}</p>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">$!{about}</li>
-    </ul>
   </div>
 </div>
