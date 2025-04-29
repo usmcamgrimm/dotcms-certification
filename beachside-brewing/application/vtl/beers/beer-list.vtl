@@ -1,0 +1,18 @@
+<h1 class="text-center">Beachside Brews</h1>
+<div class="container">
+  <div class="row">
+    #forEach($beer in $dotPageContent.beers)
+      <div class="col-lg-6 col-sm-12 justify-content-start">
+        <div class="card">
+          <a href="/beers/$beer.urlTitle" class="beerName-link">
+            <p class="cartd-header fw-bold">$!{beerName}</p>
+          </a>
+          <div class="card-body">
+            <p class="card-text">Beachside Brewery</p>
+            <p class="card-text">$!{beer.style} ⁙ $!{beer.abv}% ABV ⁙ $!{beer.ibu} IBU</p>
+          </div>
+        </div>
+      </div>
+    #end
+  </div>
+</div>
