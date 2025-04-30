@@ -1,0 +1,10 @@
+#if(UtilMethods.isSet($URLMapContent.identifier))
+  <div class="beer-detail">
+    #editContentlet($URLMapContent.inode)
+    <h1 class="text-center mb-5">Beachside Brews</h1>
+    <h2 class="text-center my-3">$!{URLMapContent.beerName}</h2>
+    <p class="text-center">$!{URLMapContent.style} ⁙ $!{beer.abv}% ABV ⁙ $!{URLMapContent.ibu} IBU</p>
+    <hr>
+    <p class="text-left">$!{URLMapContent.description}</p>
+  </div>
+#end
