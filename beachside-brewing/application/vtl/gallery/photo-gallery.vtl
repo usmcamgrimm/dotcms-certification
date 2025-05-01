@@ -1,0 +1,137 @@
+<style>
+.thumbnail-classic-caption {
+  position: absolute;
+  text-align: center;
+  min-width: 250px;
+  padding: 10px 30px;
+  bottom: 0;
+  right: auto;
+  left: 50%;
+  background: #FF7F50;
+  transform: translate3d(-50%,  0,  0);
+  transition: all 250ms ease;
+  pointer-events: none;
+}
+.thumbnail-classic-text {
+  max-width: 235px;
+  transition: all 350ms ease;
+}
+.thumbnail-classic-fullwidth img {
+  width: 100%;
+  object-fit: cover;
+}
+@media(min-width: 768px) {
+  .thumbnail-classic-caption {
+    top: 0;
+    background: rgba(231, 99, 0, 0);
+  }
+  .thumbnail-classic-title {
+    transform: translate3d(30px,  0,  0);
+  }
+  .thumbnail-classic-text {
+    transform: translate3d(40px,  0,  0);
+  }
+  .thumbnail-classic-link, .thumbnail-classic-title, .thumbnail-classic-text {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .thumbnail-classic:hover .thumbnail-classic-caption {
+    background: #FF7F50;
+  }
+  .thumbnail-classic:hover .thumbnail-classic-title, .thumbnail-classic:hover .thumbnail-classic-text {
+    opacity: 1;
+    transform: translate3d(0,  0,  0);
+    visibility: visible;
+  }
+  .thumbnail-classic:hover .thumbnail-classic-link {
+    opacity: 1;
+    visibility: visible;
+  }
+  .thumbnail-classic:hover .thumbnail-classic-figure img {
+    transform: scale(1);
+  }
+}
+@media(max-width: 767.98px) {
+  .thumbnail-classic-text {
+    display: none;
+  }
+}
+@media(min-width: 768px) {
+  .thumbnail-classic-link {
+    line-height: 1;
+    bottom: 10px;
+  }
+  .thumbnail-classic-caption {
+    text-align: left;
+    padding: 20px;
+    min-width: auto;
+    right: 0;
+    left: 0;
+    transform: none;
+  }
+  .thumbnail-classic-caption {
+    padding: 10px 15px;
+  }
+}
+@media(min-width: 1600px) {
+  .thumbnail-classic-fullwidth .thumbnail-classic-caption {
+    padding: 10px 20px;
+  }
+  .thumbnail-classic-fullwidth .thumbnail-classic-link {
+    font-size: 40px;
+    bottom: 40px;
+    right: 40px;
+  }
+}
+@media(min-width: 1800px) {
+  .thumbnail-classic-fullwidth .thumbnail-classic-link {
+    bottom: 50px;
+    right: 60px;
+  }
+  .thumbnail-classic-grid .thumbnail-classic-caption {
+    padding: 10px 20px;
+  }
+  .thumbnail-classic-grid .thumbnail-classic-link {
+    font-size: 40px;
+  }
+}
+.thumbnail-classic-text {
+  color: #212529;
+}
+</style>
+
+#set($_qk = "+contentType:FileAsset +confolder:$!{folderPathForPhotos}")
+#set($cons = $dotcontent.pull(${_qk},$!{numberOfImages},"modDate desc"))
+
+#if ($UtilMethods.isSet($widgetTitle))
+  <h2 class="text-center mb-3">$!{widgetTitle}</h2>
+#end
+
+#if ($UtilMethods.isSet($textField))
+  $!{textField}
+#end
+
+#if($cons.size() > 0)
+  <div class="container">
+    <div class="row no-gutters" data-masonry='{"percentPosition": true }'>
+      #foreach($con in $cons)
+        <div class="col-sm-6 col-lg-4 col-xl-3 my-2 mx-2">
+          <article class="thumbnail-classic thumbnail-classic-fullwidth">
+            <a class="thumbnail-classic-figure" href="/dA/$con.identifier/50q/1200w/$con.fileName">
+              <img src="/dA/$con.identifier/480w/50q/$con.fileName" alt="$!{con.title}" class="img-fluid">
+            </a>
+            #if($con.description && $con.description.trim() != "")
+              <div class="thumbnail-classic-caption">
+                  <p class="thumbnail-classic-text">$con.description</p>
+              </div>
+            #end
+          </article>
+        </div>
+      #end
+    </div>
+  </div>
+#else
+<div class="alert alert-info">
+    There are no images to display.
+</div>
+#end
