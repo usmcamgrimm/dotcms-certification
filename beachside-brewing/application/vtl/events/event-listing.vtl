@@ -1,0 +1,28 @@
+<style>
+  .card {
+    width: 20rem;
+    height: 500px;
+  }
+</style>
+
+<div class="container">
+  <div class="row flex-wrap">
+    #foreach($con.dotContent.pull("+contentType:Events +(conhost:bb63e48572c7f5389be04bf1d5392a23 conhost:SYSTEM_HOST)",20, "Events.eventDate"))
+    <div class="col-lg-4 col-sm-12">
+      <div class="card">
+        #if($EDIT_MODE)
+          <div style="float: right;margin-right: 30px;">#editContentlet($con.inode)</div>
+        #end
+        <img src="/dA/${dotContentMap.identifier}/image/$!{dotContentMap.image.name}" class="card-img-top event-img" width="320" height="280" alt="image showing an event at the brewery">
+        <div class="card-body">
+          <p class="card-title fw-bold text-center">
+            <a href="/events/$!{con.urlTitle}">$!{con.eventName}</a>
+          </p>
+          <p class="card-text text-center"><span class="fw-bold">$date.format('MMMM dd, yyyy', $con.eventDate)</span> • <span class="card-text">$!{con.eventTime}</span></p>
+          <hr>
+          <p class="card-text">$!{con.description}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
