@@ -1,11 +1,22 @@
 #if($UtilMethods.isSet($URLMapContent))
-  <h2>$URLMapContent.eventName</h2>
+<style>
+  .event-detail-photo {
+    max-width: 600px;
+    height: auto;
+  }
+</style>
+  <h2 class="mt-5 text-center">$URLMapContent.eventName</h2>
+  <hr class="mb-5">
 
   <div class="container">
-    <img src="/dA/$URLMapContent.identifier/image/$URLMapContent.image.name" alt="$!{URLMapContent.description}" class="img img-fluid w-100" />
-    <p>$date.format('MMMM dd, yyyy', $URLMapContent.eventDate) - $date.format('h:mm a', $URLMapContent.eventTime)</p>
-    <hr>
-    <div class="event-body-content"
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <img src="/dA/$URLMapContent.identifier/image/$URLMapContent.image.name" alt="$!{URLMapContent.description}" class="img img-fluid event-detail-photo" />
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <p class="fw-bold">$date.format('MMMM dd, yyyy', $URLMapContent.eventDate) - $date.format('h:mm a', $URLMapContent.eventTime)</p>
+        <hr>
+        <div class="event-body-content"
             #if ($EDIT_MODE) 
                 data-language="${CONTENT_LANGUAGE}"
                 data-inode="$URLMapContent.inode"
@@ -16,6 +27,8 @@
             #end >
             $!{URLMapContent.eventBody.toHtml('/application/block-editor/default/')}
         </div>
+      </div>
+    </div>
   </div>
 #else
   <p>No events found.</p>
