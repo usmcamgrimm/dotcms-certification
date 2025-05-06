@@ -1,8 +1,22 @@
-<h2>$!{events.eventName}</h2>
+#if($UtilMethods.isSet($URLMapContent))
+  <h2>$URLMapContent.eventName</h2>
 
-<div class="container">
-  <img src="$!{events.eventImage}" alt="$!{events.description}" class="img img-fluid w-100" />
-  <p class="fw-bold">$!{events.eventDate} &nbsp;-&nbsp; $!{events.eventTime}</p>
-  <hr>
-  <p class="text-left">$!{events.eventBody}</p>
-</div>
+  <div class="container">
+    <img src="/dA/$URLMapContent.identifier/image/$URLMapContent.image.name" alt="$!{URLMapContent.description}" class="img img-fluid w-100" />
+    <p>$date.format('MMMM dd, yyyy', $URLMapContent.eventDate) - $date.format('h:mm a', $URLMapContent.eventTime)</p>
+    <hr>
+    <div class="event-body-content"
+            #if ($EDIT_MODE) 
+                data-language="${CONTENT_LANGUAGE}"
+                data-inode="$URLMapContent.inode"
+                data-field-name="eventBody"
+                data-content-type="Events"
+                data-contentlet-identifier="$URLMapContent.identifier"
+                data-block-editor-content="$esc.html($!{URLMapContent.eventBVody.content})"
+            #end >
+            $!{URLMapContent.eventBody.toHtml('/application/block-editor/default/')}
+        </div>
+  </div>
+#else
+  <p>No events found.</p>
+#end
