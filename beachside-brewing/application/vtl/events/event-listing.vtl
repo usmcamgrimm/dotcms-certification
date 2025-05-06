@@ -1,7 +1,13 @@
 <style>
   .card {
     width: 20rem;
-    height: 500px;
+    height: 450px;
+  }
+  .event-card-title a{
+    text-decoration: none;
+  }
+  .event-card-title a:hover {
+    text-decoration: underline;
   }
 </style>
 
@@ -10,12 +16,12 @@
     #foreach($con in $dotcontent.pull("+contentType:Events +(conhost:d218cd93f037bed5c469ba8bb792be5e conhost:SYSTEM_HOST)",0,"Events.eventDate"))
       <div class="col-lg-4 col-sm-12">
         <div class="card">
-          <img src="/dA/${dotContentMap.identifier}/image/$!{dotContentMap.image.name}" class="card-img-top event-img" width="320" height="280" alt="image showing an event at the brewery">
+          <img src="/dA/$con.identifier/image/$con.image.name" class="card-img-top event-img" width="320" height="250" alt="image showing an event at the brewery">
           <div class="card-body">
-            <p class="card-title fw-bold text-center">
+            <h3 class="card-title fw-bold text-center event-card-title">
               <a href="/events/$!{con.urlTitle}">$!{con.eventName}</a>
-            </p>
-            <p class="card-text text-center"><span class="fw-bold">$date.format('MMMM dd, yyyy', $con.eventDate)</span> • <span class="card-text">$date.format('h:mm a', $con.eventTime)</span></p>
+            </h3>
+            <p class="card-text text-center">$date.format('MMMM dd, yyyy', $con.eventDate) • $date.format('h:mm a', $con.eventTime)</p>
             <hr>
             <p class="card-text">$!{con.description}</p>
           </div>
