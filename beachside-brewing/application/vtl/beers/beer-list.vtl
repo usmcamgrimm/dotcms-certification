@@ -1,32 +1,27 @@
 <style>
-  .card-body p {
-    max-height: calc(4rem * var(--base));
-    overflow: hidden;
+  .beer-list-display {
+    padding: 20px;
+    border: 1px solid #0b3754;
+    border-radius: 8px;
+    background-color: #f5e2bf;
   }
-  .card p:after {
-    content: "";
-    background: linear-gradient(to right, transparent, var(--background) 80%);
-    display: block;
-    height: calc(1rem * var(--base) + 1px);
-    inset-block-end: 0;
-    position: absolute;
-    width: 100%;
+  .beerName-link {
+    text-decoration: none;
   }
 </style>
-<h1 class="text-center">Beachside Brews</h1>
-<div class="container">
+<div class="container beer-list-display">
   <div class="row">
     #foreach($con in $dotcontent.pull("+contentType:Beer +(conhost:d218cd93f037bed5c469ba8bb792be5e conhost:SYSTEM_HOST)",0,"Beer.beerName"))
       <div class="col-lg-6 col-sm-12 justify-content-start">
         <div class="card mb-3">
-          <div class="card-header">
-            <a href="/beers/$beer.urlTitle" class="beerName-link">
-              <p class="fw-bold">$!{con.beerName}</p>
+          <div class="card-header align-content-center">
+            <a href="/beers/$!{con.urlTitle}" class="beerName-link">
+              <p class="fw-bold mb-0">$!{con.beerName}</p>
             </a>
           </div>
-          <div class="card-body">
-            <p class="card-text description">$!{con.description}</p>
-            <p class="card-text">$!{con.style.selectValue} - $!{con.abv}% ABV - $!{con.ibu} IBU</p>
+          <div class="card-body" style="width: 100%;">
+            <p class="card-text">$!{con.description}</p>
+            <p class="card-text">$!{con.style.selectValue} • $!{con.abv}% ABV • $!{con.ibu} IBU</p>
           </div>
         </div>
       </div>

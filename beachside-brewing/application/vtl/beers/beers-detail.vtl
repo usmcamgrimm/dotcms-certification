@@ -1,10 +1,11 @@
-#if(UtilMethods.isSet($URLMapContent.identifier))
+#if($UtilMethods.isSet($URLMapContent))
   <div class="beer-detail">
-    #editContentlet($URLMapContent.inode)
-    <h1 class="text-center mb-5">Beachside Brews</h1>
-    <h2 class="text-center my-3">$!{URLMapContent.beerName}</h2>
-    <p class="text-center">$!{URLMapContent.style} ⁙ $!{beer.abv}% ABV ⁙ $!{URLMapContent.ibu} IBU</p>
+    <h1 class="text-center">$URLMapContent.beerName</h1>
+    <p class="text-center fw-bold">$!{URLMapContent.style.selectValue} • $!{URLMapContent.abv}% ABV • $!{URLMapContent.ibu} IBU</p>
     <hr>
-    <p class="text-left">$!{URLMapContent.description}</p>
+    <p class="text-center my-3">$!{URLMapContent.body}</p>
+    <p class="text-center"><a href="/beer-list/" class="btn btn-primary w-50">Back to the Beer List</a></p>
   </div>
+#else
+  <p>That beer doesn't exist.</p>
 #end
