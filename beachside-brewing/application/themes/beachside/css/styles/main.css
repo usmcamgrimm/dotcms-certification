@@ -3,13 +3,17 @@
   src: url('/application/themes/beachside/fonts/KaushanScript.ttf') format('truetype');
 }
 :root,
-[data-bs-theme=light] {
+[data-bs-theme=light],
+[data-bs-theme=dark] {
   --bs-primary: #0b3754;
   --bs-secondary: #FF7F50;
   --bs-warning: #f5e2bf;
   --bs-danger: #ce1126;
   --bs-light: #fefefe;
   --bs-dark: #212529;
+}
+.bg-body-cta {
+  background-color: #f5e2bf;
 }
 *, *::before, *::after {
   box-sizing: border-box;
