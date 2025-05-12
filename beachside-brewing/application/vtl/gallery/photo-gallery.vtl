@@ -2,7 +2,7 @@
 #set($cons = $dotcontent.pull(${_qk},$!{numberOfImages},"modDate desc"))
 
 #if ($UtilMethods.isSet($widgetTitle))
-  <h2 class="text-center mb-3">$!{widgetTitle}</h2>
+  <h2 class="text-center mb-5">$!{widgetTitle}</h2>
 #end
 
 #if ($UtilMethods.isSet($textField))
@@ -10,24 +10,26 @@
 #end
 
 #if($cons.size() > 0)
-  <div class="container mx-auto">
-    <div class="row no-gutters" data-masonry='{"percentPosition": true }'>
-      #foreach($con in $cons)
-        <div class="col-sm-6 col-lg-4 col-xl-3 my-2 mx-2">
-          <article class="thumbnail-classic thumbnail-classic-fullwidth">
-            <img src="/dA/$con.identifier/480w/50q/$con.fileName" alt="$!{con.title}" class="img-fluid gallery-image">
-            #if($con.description && $con.description.trim() != "")
-              <div class="thumbnail-classic-caption">
-                  <p class="thumbnail-classic-text">$con.description</p>
-              </div>
-            #end
-          </article>
-        </div>
-      #end
+  <div class="d-flex justify-content-center">
+    <div class="container-fluid" style="max-width: 1200px; padding: 0 15px">
+      <div class="row justify-content-center no-gutters" data-masonry='{"percentPosition": true }'>
+        #foreach($con in $cons)
+          <div class="col-sm-6 col-lg-4 col-xl-3 my-2">
+            <article class="thumbnail-classic thumbnail-classic-fullwidth">
+              <img src="/dA/$con.identifier/480w/50q/$con.fileName" alt="$!{con.title}" class="img-fluid gallery-image">
+              ## #if($con.location && $con.location.trim() != "")
+              ##   <div class="thumbnail-classic-caption">
+              ##       <p class="thumbnail-classic-text">$con.location</p>
+              ##   </div>
+              ## #end
+            </article>
+          </div>
+        #end
+      </div>
     </div>
   </div>
 #else
-<div class="alert alert-info">
+<div class="alert alert-info text-center">
     There are no images to display.
 </div>
 #end
